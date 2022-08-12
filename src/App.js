@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 // import logo from './logo.svg';
 import './App.css';
 
-function App() {
+console.log("Proptypes:",PropTypes);
+function App(props) {
+  console.log('App component props:',props);
   return (
     <div className="App">
       <header className="App-header">
@@ -10,6 +13,29 @@ function App() {
       </header>
     </div>
   );
+}
+
+/** ------ Example of using props in Class component ---- */
+// class Welcome extends React.Component {
+//   render() {
+//     return <h1>Hello, {this.props.name}</h1>;
+//   }
+// }
+
+App.propTypes = {
+  propObject: PropTypes.object,
+  propString: PropTypes.string,
+  propNumber: PropTypes.number
+}
+
+App.defaultProps = {
+  propObject: {
+    obj1: "I am obj 1!!!",
+    obj2: "I am obj 2!!!",
+    obj3: "I am obj 3!!!"
+  },
+  propString: 'I am a String prop!!',
+  propNumber: 2022
 }
 
 class ParentComp extends Component {  
